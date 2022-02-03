@@ -1,0 +1,70 @@
+#searchResult {
+		padding: 0.2em 0.5em;
+		margin-top: 3.5em;
+		margin-bottom: 0.5em;
+		background: #f0efeb;
+	}
+
+#searchResult > p {
+		font-weight: bold;
+		font-size: large;
+	}
+
+#resultItems {
+		padding: 0.5em 1.5em;
+		display: flex;
+		flex-wrap: wrap; /*wrap item so that the position of item is flaxible based on the browser window size*/
+		justify-content: flex-start;
+	}
+
+.itemBox > img {
+		height: 7em;
+		width: 7em;
+	}
+
+.itemBox { /*Each item have a box which include image and all information*/
+	padding: 0.7em;
+	background: #f0efeb;
+	opacity: 0.95;
+	margin:0.5em;
+}
+
+.price {
+		font-weight: bold;
+		color: black;
+	}
+
+.itemName {
+		font-size: 0.9em;
+		font-family: Georgia, serif;
+		color: black;
+	}
+
+
+.availability {
+		font-size: 0.7em;
+		color: #999999;
+	}
+
+@media all and (min-width: 376px) {
+	#searchResult {
+		margin-top: 0.5em;
+	}
+
+	#resultItems {
+		padding: 0.5em 1.5em;
+		display: flex;
+		flex-wrap: wrap; /*wrap item so that the position of item is flaxible based on the browser window size*/
+		justify-content: flex-start;
+	}
+
+	.itemBox > img {
+		height: 11.2em;
+		width: 11.2em;
+	}
+
+	.itemBox { /*Each item have a box which include image and all information*/
+		margin: 2em;
+	}
+
+}

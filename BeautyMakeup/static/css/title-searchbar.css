@@ -1,0 +1,64 @@
+#title-box{
+
+}
+
+.container {
+    position: absolute;
+    left: 1100px;
+    top: 120px;
+    height: 10px;
+    width: 50px;
+
+}
+
+.parent {
+
+    position: relative;
+
+}
+
+.search {
+
+    width: 200px;
+    height: 30px;
+    border-radius: 18px;
+
+    outline: none;
+
+    border: 1px solid #ccc;
+
+    padding-left: 36px;
+
+    position: relative;
+
+
+}
+
+.btn {
+
+    height: 30px;
+
+    width: 30px;
+
+    position: absolute;
+
+    background: url(../img/search.png) ;
+    background-size: 30px 30px;
+    top: 3px;
+
+    left: 200px;
+
+    border: none;
+
+    outline: none;
+
+    cursor: pointer;
+
+}
+
+@media all and (min-width: 376px) {
+    #title-box {
+        display: flex;
+        flex-direction: row;
+    }
+}

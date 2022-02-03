@@ -1,0 +1,116 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Homepage for BeautyMakeups">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeautyMakeup | {% block page-title %}{% endblock %}</title>
+
+    <script src="{% static "js/jquery-3.6.0.min.js" %}" ></script>
+	<script src="{% static "js/scripts.js" %}" ></script>
+    <link rel="stylesheet" href="{% static "css/responsive-footer.css" %}">
+    <link rel="stylesheet" href="{% static "css/responsive-header.css" %}">
+    <link rel="stylesheet" href="{% static "css/title-searchbar.css" %}">
+
+    {# blocks for add css files for other html pages#}
+    {% block css-file %}
+    {% endblock %}
+    {# blocks for add css files for other html pages#}
+
+</head>
+<body>
+    <!--Home page header; all the HTML pages have the same header -->
+   <header>
+       <div id="leftHeader">
+           <div id="newText">
+               <h4>Welcome to BeautyMakeups</h4>
+           </div>
+       </div>
+
+
+       <div id="midHeader">
+
+           {% if request.session.username %}
+           {# if user logged in, present the username here #}
+           <form id="login-box" >
+               <h4>Logged in as <a href="{% url "users:profile" request.session.username %}" class="greet">{{ request.session.username }}</a> | <a href="{% url "users:logout" %}">Log out</a></h4>
+           </form>
+
+           {% else %}
+           {# otherwise, shows the log in option here #}
+           <form id="login-box" action="{% url "users:login" %}" method="post">
+               {% csrf_token %}
+               <input type="text" name="username" placeholder="Username">
+               <input type="password" name="pw" placeholder="Password">
+               <input type="submit" name="submit" value="Login"> or <a href="{% url 'users:register' %}" >Register</a>
+           </form>
+           {% endif %}
+
+
+       </div>
+
+
+
+       <div id="rightHeader">
+           <a href="{% url "BeautyMakeup:beauty_makeup_home" %}">Home</a> |
+           <a href="{% url "BeautyMakeup:beauty-makeup-list" %}">Lists</a> |
+           <a href="{% url "BeautyMakeup:add-item" %}">Add</a>
+       </div>
+
+   </header>
+
+    <!-- title box and search bar part -->
+    <section>
+        <div id="title-box">
+            <div id="logo">
+                <img src="{% static "img/logo.jpg" %}" alt="BeautyMakeup logo" width="55" height="80"/>
+            </div>
+            <div id="logoText">
+                <h1>Beauty Makeup</h1>
+            </div>
+        </div>
+
+        <div class="container">
+            <form id="search-box", action="{% url "BeautyMakeup:item-search" %}" method="GET">
+                <input id="searchItem" type="text" class="search" name="search1" placeholder="shine pink" >
+                <input type="button" name="" id="search-box-button" class="btn">
+            </form>
+        </div>
+    </section>
+
+     <hr/>
+
+    {#  Block for main content of each page #}
+        {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+		<section>
+            {% block content %}{% endblock %}
+        </section>
+
+
+    <!-- footer of this web -->
+    <footer>
+        <div id="leftFooter">
+            <p>@ 2021 Beauty Makeups</p>
+        </div>
+
+        <div id="midFooter">
+            <a href="{% url "BeautyMakeup:beauty_makeup_home" %}">Home</a> |
+            <a href="#">Provicy Police</a> |
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div id="rightFooter">
+            <img src = "{% static "img/facebook-icon.png" %}" alt="facebook icon" />
+            <img src = "{% static "img/twitter-icon.png" %}" alt="twitter icon" />
+        </div>
+    </footer>
+
+</body>
+</html>

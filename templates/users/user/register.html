@@ -1,0 +1,41 @@
+{% extends "BeautyMakeup/base.html" %}
+{% load static %}
+
+{% block page-title %} | Register User{% endblock %}
+
+{% block css-file %}
+    <link rel="stylesheet" href="{% static "css/register.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<div id="register">
+	{# This page will be directed to the list page after submitting the new item #}
+	<form id="register-user" action="{% url 'users:register' %}" method="POST">
+        <h2>Register your Account</h2>
+
+        {% csrf_token %}
+        <p>* = required.</p>
+
+		<label for="register-username">Name*</label><br/>
+		<input type="text" id="register-username" name="username" required/><br/>
+
+        <label for="register-email">Email*</label><br/>
+		<input type="email" id="register-email" name="email" required/><br/>
+
+        <label for="register-password">Password*</label><br/>
+		<input type="password" id="register-password" name="password" required/><br/>
+
+        <label for="register-role">Role*</label><br/>
+        {# <input type="role" id="register-role" name="role" required/><br/> #}
+        "<select type="role" id="register-role" name="role" id=\"roleOption\">\n" +
+            "\t    \t\t<option value="Regular">Regular</option>\n" +
+            "\t    \t\t<option value="Admin">Admin</option>\n" +
+            "\t    \t</select>"
+
+        <input type="submit" name="submit" value="Register"/><br/>
+
+	</form>
+</div>
+
+{% endblock %}

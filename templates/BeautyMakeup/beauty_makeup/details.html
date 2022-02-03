@@ -1,0 +1,128 @@
+{% extends "BeautyMakeup/base.html" %}
+{% block page-title %}Comments{% endblock %}
+{%  load static %}
+{% load humanize %}
+{% block css-file %}
+    <link rel="stylesheet" href="{% static "css/tab-menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/comment.css" %}">
+    <link rel="stylesheet" href="{% static "css/details-item.css" %}">
+{% endblock %}
+
+{# This tempate is for item details #}
+{% block content %}
+
+    <!-- item details include one picture and some information about it-->
+    <div id="itemDetail">
+            <div id="itemImageSet">
+				<img src="/static{{ item.item_img.url}}" alt="image of {{item.item_img}}" />
+			</div>
+
+			<div id="itemInfo">
+				<div id="info">
+                    <p class="name"><strong>{{ item.title}}</strong></p>
+                    <p class="postTime">Posted on: {{item.date_posted}}</p>
+                    <br>
+					<p class="price">Price: ${{ item.price }}</p>
+                    <p class="stock">{{ item.condition }} in stock</p>
+					<p class="number">Numbers:
+                        <input type="number" id="add-price" name="add-price" min="0" required/>
+                    </p>
+
+                    <a href="#">
+                        <p class="addToCart">add to cart</p></a>
+				</div>
+				<hr/>
+				<div id="condition">
+					<h4>Edit/Delete this product</h4>
+                    {% if request.session.role%}
+                        <div id="itemDetail">
+                            <button onclick="location.href = '{% url "BeautyMakeup:edit-item" item.id %}' ">Edit</button>
+                            {% if request.session.role == "Admin"%}
+                                <button onclick="location.href = '{% url "BeautyMakeup:delete-item" item.id %}'">Delete</button>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+				</div>
+			</div>
+
+        </div>
+
+
+
+    <!--details and using methods -->
+    <div class="tab">
+        <div class="tab_menu">
+            <hr/>
+        <ul>
+            <li class="selected">Details</li>
+            <li>Using Methods</li>
+        </ul>
+        </div>
+
+        <div class="tab_box">
+            <div>
+                <p>{{ item.description }}</p>
+            </div>
+            <div class="hide">Using Methods</div>
+        </div>
+        <br>
+    </div>
+
+
+    <!--comment area-->
+    <div id="itemComment">
+    <hr/>
+        <h2>Customer Reviews</h2>
+        <img src="{% static "img/star.PNG" %}" />
+        <p>4.5 out of 5.0</p>
+
+            <div id="all-comments" data-edit-url="{% url "BeautyMakeup:edit-comment" %}" data-delete-url="{% url "BeautyMakeup:delete-comment" %}">
+                {% if comments|length == 0 %}
+                <p class="no-comment">No comments yet.</p>
+                {% else %}
+                    {% for comment in comments %}
+                        <div class="comment-block">
+                            <hr/>
+                            <p class="title">{{ comment.commentTitle }}</p>
+                            <p class="commentText">{{ comment.commentText}}</p>
+                            <p class="post-time">Posted {{ comment.date_posted|naturaltime }} by <a href="{{  comment.user.details.get_absolute_url }}"> {{ comment.author }}</a> </p>
+                            {% if request.session.role == "Admin" or request.session.username == comment.author %}
+                                <button class="edit-comment">Edit Comment</button>
+                                <button class="submit-edit-comment" data-comment-id="{{ comment.id }}" data-ajax-url="{% url "BeautyMakeup:edit-comment" %}" style="display: none" >Submit Edit</button>
+                                <button class="delete-comment" data-comment-id="{{ comment.id }}" data-ajax-url="{% url "BeautyMakeup:delete-comment" %}">Delete Comment</button>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+    <hr/>
+
+    {% if request.session.username %}
+     <!-- Add new comment area for users-->
+        <div id="addComment">
+            <h2>Add Comment</h2>
+
+            <div class="commentArea">
+                <label for="commentTitle">Add Title *</label><br/>
+                <input type="text" id="commentTitle" name="name" placeholder="Experience about this lip" value=""/>
+            </div>
+
+
+            <div class="commentArea">
+                <label for="comment">Add Your Comment *</label><br/>
+                <textarea id="comment" name="comment" placeholder="I would say this is the best product I have ever bought." required></textarea>
+            </div>
+
+            <div class="commentArea">
+                 <button id="submitComment" name="submitComment" data-item-id="{{ item.id }}" data-ajax-url="{% url "BeautyMakeup:add-comment" %}" data-user-name="{{ request.session.username }}" data-user-url="{% url "users:profile" request.session.username %}">Submit</button>
+            </div>
+        </div>
+        {% endif %}
+
+</div>
+
+
+
+{% endblock %}
+

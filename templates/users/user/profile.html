@@ -1,0 +1,70 @@
+{% extends "BeautyMakeup/base.html" %}
+{% load static %}
+{% load humanize %}
+{% block page-title %}Profile for {{ user.username }}{% endblock %}
+
+{% block css-file %}
+    <link rel="stylesheet" href="{% static "css/responsive-profile.css" %}">
+
+{% endblock %}
+
+{# This template is for the user's profile#}
+
+{% block content %}
+    <h2>{{ user.username }}'s Profile</h2>
+
+    <h3>User Detail</h3>
+
+
+<div id="userProfile">
+	<div id="userImage">
+        <img src="{% static  "img/userImage.jpg" %}"  alt="image of user" />
+	</div>
+
+
+    <div id="detail-info" data-ajax-url="{% url "BeautyMakeup:change-role" %}" data-user-name="{{ user.username }}">
+        <table>
+            <tr>
+                <td>Username: </td>
+                <td id="user-name">{{ user.username }}</td>
+            </tr>
+            <tr>
+                <td>First Name: </td>
+                <td id="user-first-name">{{ user.first_name }}</td>
+            </tr>
+            <tr>
+                <td>Last Name: </td>
+                <td id="user-last-name">{{ user.last_name }}</td>
+            </tr>
+            <tr>
+                <td>Email Address: </td>
+                <td id="user-email">{{ user.email }}</td>
+            </tr>
+            <tr>
+                <td>Role: </td>
+                <td id="user-role">{{ user.details.role }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="editProfile">
+        {% if request.session.role == "Admin" or request.session.username == user.username %}
+            <button class="edit-user-profile" onclick="location.href='{% url "users:edit-profile" user.username %}' ">Edit</button>
+            <button class="update-password" style="display: none" data-ajax-url="{% url "users:change-password" %}">Update Password</button>
+            <button class="change-password">Change Password</button>
+            {% if request.session.role == "Admin" %}
+                <button id="change-role">Change Role</button>
+            {% endif %}
+        {% endif %}
+    </div>
+
+</div>
+
+
+
+
+<div id="activities">
+{% include "actions/action/feed.html" %}
+</div>
+
+{% endblock %}

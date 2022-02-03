@@ -1,0 +1,42 @@
+header{
+	background: #FFC0CB;
+	height: 4em;
+    color: #f8f8f8;
+}
+
+#leftHeader {
+	display: flex;
+	float: right;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+#midHeader {
+	display: flex;
+	position: relative;
+	top: 20px;
+	color: #f8f8f8;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+
+#rightHeader{
+	float: right;
+	color: #f8f8f8;
+	position: relative;
+	top: 20px;
+	left: -1.2em;
+}
+
+
+@media all and (min-width: 376px) {
+	header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;/*Three part of header should be in left, middle and right*/
+	}
+
+
+
+}

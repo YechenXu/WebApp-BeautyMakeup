@@ -1,0 +1,37 @@
+{% extends "BeautyMakeup/base.html" %}
+{% block page-title %}Home{% endblock %}
+{%  load static %}
+
+{% block css-file %}
+    <link rel="stylesheet" href="{% static "css/tab-menu.css" %}">
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="tab">
+        <div class="tab_menu">
+        <ul>
+            <li class="selected">Best seller</li>
+            <li>Season Limited Products</li>
+        </ul>
+        </div>
+
+        {% for item in items %}
+            <div class="tab_box1">
+                <div>
+                    <p><h2 style="position: relative; left: 1em">No.{{ item.id }}</h2>
+                    <img src="/static{{ item.item_img.url}}"width="320" height="300" style="position: relative; left: 1em"/>
+                    <h5 style="position: relative; left: 11em; bottom: 1em">{{ item.title }}</h5>
+                    <h5 style="position: relative; left: 11em; bottom: 2em">Price: ${{ item.price }}</h5>
+                    <a style="position: relative; left: 7.5em; bottom: 2em" href="{% url "BeautyMakeup:item-detail" item.id %}" >View Comments</a>
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+
+            <div class="hide">Season Limited Products</div>
+    </div>
+
+
+{% endblock %}

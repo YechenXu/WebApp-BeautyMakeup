@@ -1,0 +1,94 @@
+#operationButtons{
+	padding-top: 0.5em;
+}
+
+
+/*All the button and submit type input keep the same style*/
+#operationButtons > button,
+#operationButtons > form > input[type="submit"],
+#operation > input[type="submit"],
+#addComment > form > div > input[type="submit"],
+#editItem {
+		width: 40em;
+}
+
+#itemComment{
+		padding-left: 1em;
+		padding-right: 1em;
+}
+
+#editItem > input[type="submit"],
+#editItem > button{
+	background: transparent;
+	width: 8em;
+	height: 2.1em;
+	margin: 0.5em 0.5em 0.5em 0;
+	border: 0.16em solid black;
+	font-size: 1em;
+	box-sizing: border-box;
+	text-decoration: none;
+	outline: none;
+	font-family: 'Roboto', sans-serif;
+}
+
+#operationButtons > button:hover,
+#addComment > form > div > input[type="submit"]:hover,
+#operationButtons > form > input[type="submit"]:hover,
+#editItem > input[type="submit"]:hover,
+#editItem > button:hover{
+	border-color:#999999;
+	color:#999999;
+}
+
+#operationButtons > button:active,
+#addComment > form > div > input[type="submit"]:active,
+#operationButtons > form > input[type="submit"]:active,
+#editItem > input[type="submit"]:active,
+#editItem > button:active
+{
+	background:#cccccc;
+	border-color: #cccccc;
+	color: black;
+}
+
+#addComment > div > input[type="text"],
+#addComment > div > textarea{
+	width: 100%;
+	padding: 0.6em 1em;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	-webkit-transition: 0.5s;
+  	transition: 0.5s;
+  	border-radius: 0.2em;
+  	outline: none;
+}
+
+#addComment{
+	padding: 0.5em 0em 1em 0em;
+}
+
+#addComment >  div {
+	padding: 0.5em 0em 0.5em 0em;
+}
+
+
+
+#addComment > div > label{
+	padding-bottom: 0.8em;
+	margin-bottom: 0.8em;
+}
+
+	.postedBy{
+		font-size: 0.9em;
+	}
+
+	.post-time{
+		padding-bottom: 1em;
+		font-size: 0.8em;
+		color:grey;
+	}
+
+	.postTime{
+	font-size: 0.9em;
+	color: #999999;
+}

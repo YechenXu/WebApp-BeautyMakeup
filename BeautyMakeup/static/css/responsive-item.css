@@ -1,0 +1,128 @@
+#itemImageSet{
+		padding: 2em 2em 3em 1em; /*This area should have one or more item image*/
+	}
+
+#itemImageSet > img{
+	height: 23em;
+	margin-top: 0em;
+	padding-left: 0em;
+}
+
+#itemInfo{
+	padding: 1em 2em 3em 1em;
+}
+
+.price{
+	font-weight: bold;
+}
+
+.avilability,
+.postTime{
+	font-size: 0.9em;
+	color: #999999;
+}
+
+#operationButtons{
+	padding-top: 0.5em;
+}
+
+/*All the button and submit type input keep the same style*/
+#operationButtons > button,
+#operationButtons > form > input[type="submit"],
+#operation > input[type="submit"],
+#addComment > form > div > input[type="submit"],
+#editItem > input[type="submit"],
+#editItem > button{
+	background: transparent;
+	width: 8em;
+	height: 2.1em;
+	margin: 0.5em 0.5em 0.5em 0;
+	border: 0.16em solid black;
+	font-size: 1em;
+	box-sizing: border-box;
+	text-decoration: none;
+	outline: none;
+	font-family: 'Roboto', sans-serif;
+}
+
+#operationButtons > button:hover,
+#addComment > form > div > input[type="submit"]:hover,
+#operationButtons > form > input[type="submit"]:hover,
+#editItem > input[type="submit"]:hover,
+#editItem > button:hover{
+	border-color:#999999;
+	color:#999999;
+}
+
+#operationButtons > button:active,
+#addComment > form > div > input[type="submit"]:active,
+#operationButtons > form > input[type="submit"]:active,
+#editItem > input[type="submit"]:active,
+#editItem > button:active
+{
+	background:#cccccc;
+	border-color: #cccccc;
+	color: black;
+}
+
+
+#info > p > input[type="text"],
+#condition > h3 > input[type="text"],
+#condition > p > textarea
+
+
+@media all and (min-width: 376px) {
+	section{
+		display: flex;
+		flex-direction: column;
+	}
+
+	#itemDetail{
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+
+	#editItem {
+		width: 40em;
+	}
+
+
+
+	#itemInfo{
+		width:40em;
+		padding: 2em 2em 3em 0em;
+	}
+
+	.price{
+		font-size: 1.3em;
+	}
+
+	.name{
+		font-size: 1.2em;
+	}
+
+	.postedBy{
+		font-size: 0.9em;
+	}
+
+	#condition > p {
+		font-size: 0.9em;
+	}
+
+	.title{
+		font-weight: bold;
+		font-size: 1.2em;
+	}
+
+	.post-time{
+		padding-bottom: 1em;
+		font-size: 0.8em;
+		color:grey;
+	}
+
+
+
+
+
+}

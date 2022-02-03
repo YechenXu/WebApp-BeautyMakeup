@@ -1,0 +1,45 @@
+{% load humanize %}
+
+<h3>Recent Activity</h3>
+
+<ul>
+    {% for action in actions %}
+        {% if action.target != None %}
+            {% if action.user.username == request.session.username %}
+                {% if action.target.details.get_absolute_url != None %}
+                    <li style="list-style-type: none">
+                        You {{ action.verb }} <a
+                            href="{{ action.target.details.get_absolute_url }}">{{ action.target }}</a> (
+                        {{ action.date_created |naturaltime }})
+                    </li>
+                {% else %}
+                    <li style="list-style-type: none">
+                        You {{ action.verb }} <a href="{{ action.target.get_absolute_url }}">{{ action.target }}</a> (
+                        {{ action.date_created |naturaltime }})
+                    </li>
+                {% endif %}
+            {% else %}
+
+                {% if action.target.details.get_absolute_url != None %}
+                    <li style="list-style-type: none"><a
+                        href="{{ action.user.details.get_absolute_url }}">{{ action.user.username }}</a>
+                    {{ action.verb }} <a href="{{ action.target.details.get_absolute_url }}">{{ action.target }}</a>
+                    ({{ action.date_created |naturaltime }})
+                    </li>
+                {% else %}
+                    <li style="list-style-type: none"><a
+                        href="{{ action.user.details.get_absolute_url }}">{{ action.user.username }}</a>
+                    {{ action.verb }} <a href="{{ action.target.get_absolute_url }}">{{ action.target }}</a>
+                    ({{ action.date_created |naturaltime }})
+                    </li>
+                {% endif %}
+
+            {% endif %}
+        {% endif %}
+    {% empty %}
+        <li>No activity yet.</li>
+    {% endfor %}
+
+</ul>
+
+

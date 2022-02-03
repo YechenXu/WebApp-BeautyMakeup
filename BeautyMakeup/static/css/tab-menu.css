@@ -1,0 +1,43 @@
+.tab_menu ul li {
+    display: inline-block;
+    cursor:pointer;
+    padding:5px 10px;
+}
+
+.selected {
+    background: #FFC0CB;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+
+.hover{
+    background: #ccc;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.tab_box div{
+    position: relative;
+    border: 1px solid palevioletred;
+    height: 80px;
+    width: 800px;
+    left: 40px;
+    bottom: 15px;
+}
+
+.tab_box1 div{
+    position: relative;
+    border: 1px solid palevioletred;
+    height: 480px;
+    width: 1000px;
+    left: 40px;
+    bottom: 15px;
+}
+
+
+.hide{
+    display:none;
+}
+

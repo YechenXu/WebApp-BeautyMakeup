@@ -1,0 +1,61 @@
+#itemImageSet{
+		padding: 2em 2em 3em 1em; /*This area should have one or more item image*/
+	}
+
+#itemImageSet > img{
+	height: 23em;
+	margin-top: 0em;
+	padding-left: 0em;
+}
+
+#itemInfo{
+	width: 40em;
+	padding: 2em 2em 3em 0em;
+}
+
+.name{
+	font-weight: bold;
+	font-size: 1.3em;
+}
+
+.price{
+	font-size: 1.0em;
+}
+
+.stock{
+	font-size: 0.8em;
+}
+
+.postTime{
+	font-size: 0.8em;
+	color: #999999;
+}
+
+.number{
+	font-size: 1.0em;
+}
+
+#info > p > input[type="text"],
+#condition > h3 > input[type="text"],
+#condition > p > textarea,
+#addComment > div > textarea{
+	width: 40%;
+}
+
+@media all and (min-width: 376px) {
+	section{
+		display: flex;
+		flex-direction: column;
+	}
+
+	#itemDetail{
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+
+	#condition > p {
+		font-size: 0.9em;
+	}
+
+}

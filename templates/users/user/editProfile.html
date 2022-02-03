@@ -1,0 +1,60 @@
+{% extends "BeautyMakeup/base.html" %}
+{% load static %}
+{% block page-title %}Profile for {{ user.username }}{% endblock %}
+
+{% block css-file %}
+    <link rel="stylesheet" href="{% static "css/responsive-profile.css" %}">
+
+{% endblock %}
+
+{# This template is for the user's profile#}
+
+{% block content %}
+    <h2>Editing {{ user.username }}'s Profile</h2>
+
+    <h3>User Detail</h3>
+
+
+<div id="userProfile">
+	<div id="userImage">
+        <img src="{% static  "img/userImage.jpg" %}"  alt="image of user" />
+	</div>
+
+
+    <div id="detail-info" >
+
+        <table>
+            <form id="edit-profile-form" action="{% url "users:submit-profile-edit" user.username %}" method="POST">
+                {% csrf_token %}
+                <tr>
+                    <td>Username: </td>
+                    <td>{{ user.username }}</td>
+                </tr>
+                <tr>
+                    <td>First Name: </td>
+                    <td><input type="text" id="edit-firstname" name="edit-firstname"  value="{{ user.first_name }}"/></td>
+                </tr>
+                <tr>
+                    <td>Last Name: </td>
+                    <td><input type="text" id="edit-lastname" name="edit-lastname" value="{{ user.last_name }}"/></td>
+                </tr>
+                <tr>
+                    <td>Email Address: </td>
+                    <td><input type="email" id="edit-email" name="edit-email" value="{{ user.email }}" required/></td>
+                </tr>
+                <tr>
+                    <td>Role: </td>
+                    <td id="user-role">{{ user.details.role }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" name="submit" value="Submit Update"></td>
+                </tr>
+            </form>
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

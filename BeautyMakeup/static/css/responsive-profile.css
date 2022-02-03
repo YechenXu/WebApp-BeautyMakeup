@@ -1,0 +1,125 @@
+#userProfile{
+	padding: 2em 1.5em 1.2em 1em;
+}
+
+#userImage > img {
+	height: 10em;
+	padding: 0.2em;
+}
+
+#editProfile > button,
+#change-role,
+#updateRole,
+input[type="submit"]{
+	background:#cccccc;
+	padding: 0.3em 1em;
+	margin: 1em 0.5em;
+	border: none;
+	font-size: 1em;
+	/*border-radius: 0.3em;*/
+	box-sizing: border-box;
+	text-decoration: none;
+	outline: none;
+	font-family: 'Roboto', sans-serif;
+}
+
+#editProfile > button:hover,
+#change-role:hover,
+#updateRole:hover,
+input[type="submit"]:hover{
+	background-color:#999999;
+}
+
+#editProfile > button:active,
+#change-role:active,
+#updateRole:active,
+input[type="submit"]:active{
+	background:#cccccc;
+	border-color: #cccccc;
+	color: black;
+}
+
+#change-role,
+#updateRole,
+input[type="submit"]{
+	margin: 0em;
+}
+
+#roleOption{
+	width: 7em;
+	height: 1.75em;
+	outline: none;
+	border: 0.1em solid black;
+	font-size: 1em;
+}
+
+input[type="text"],
+input[type="email"]{
+	width: 9em;
+	height: 1.5em;
+	outline: none;
+	border: 0.1em solid black;
+	font-size: 1em;
+}
+
+h3 {
+	padding: 0.8em 0.5em;
+	background:#cccccc;
+	border-color: #cccccc;
+}
+
+@media all and (min-width: 376px) {
+	section{
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+
+	/*style for profle area*/
+
+	#userProfile{
+		padding: 1.2em 1.5em 1.2em 2em;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+
+	#detail-info {
+		margin-left: 6em;
+		margin-right: 6em;
+	}
+
+	#userProfile > div > table {
+		border: none;
+		border-spacing: 1.2em;
+	}
+
+	#detail-info > table > tr{
+		margin: 1em 2em;
+		padding: 2em 3em;
+	}
+
+
+	#userImage > img {
+		height: 15em;
+		padding: 0.2em;
+	}
+
+	#info{
+		position: static;
+	}
+
+	#editProfile{
+		padding: 1em 0.2em 0.2em 5em;
+		display: flex;
+		justify-content: flex-start;
+		flex-direction: column;
+		width: 15em;
+	}
+
+	#activities > ul > li{
+		padding-bottom: 0.5em;
+		list-style-type: circle
+	}
+
+}

@@ -1,0 +1,49 @@
+.homeNotLogin {
+    height: 600px;
+    width: 1200px;
+
+    position: relative;
+
+    background: url(../img/colorpop.jpg) ;
+    background-size: 1200px 600px;
+
+    left: 110px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+}
+
+#adverText {
+    display: flex;
+	position: relative;
+    font-size: 70px;
+    font-weight: bolder;
+    font-style: oblique;
+    letter-spacing: 2px;
+	top: 140px;
+    left: 650px;
+	color: #D2691E;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+#adverText1 {
+    display: flex;
+	position: relative;
+    font-size: 30px;
+	top: 160px;
+    left: 800px;
+	color: #999999;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+#adverText2 {
+    display: flex;
+	position: relative;
+	top: 200px;
+    left: 850px;
+	flex-direction: row;
+	justify-content: flex-start;
+}

@@ -1,0 +1,168 @@
+section{
+	padding-top: 4em;
+}
+
+#uploadArea{
+	border: 0.1em dashed black;
+	height: 5em;
+	width: 8em;
+}
+
+#uploadImage > p
+ {
+	float: right;
+	position: relative;
+	top: -5em;
+	left: 5em;
+}
+
+#uploadImage > input[type="file"]{
+	float: right;
+	position: relative;
+	top: -6em;
+	left: 4em;
+}
+
+#addDetail{
+	padding: 1em;
+}
+
+#addDetail > form > div {
+	margin-bottom: 0.5em;
+  	padding-top: 0.5em;
+}
+
+#description{
+	width: 100%;
+	padding: 0.6em 1em;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	-webkit-transition: 0.5s;
+  	transition: 0.5s;
+  	border-radius: 0.2em;
+  	outline: none;
+}
+
+#addDetail > form > div > input[type="text"],
+#addDetail > form > div > input[type="number"],
+#addDetail > form > div > select{
+	width: 100%;
+	padding: 0.6em 1em;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	-webkit-transition: 0.5s;
+  	transition: 0.5s;
+  	border-radius: 0.2em;
+  	outline: none;
+}
+
+#addDetail > form > div > input:focus {
+  outline: none;
+  border: 0.05em solid #555;
+}
+
+
+#addDetail > form > div > label {
+	font-size: 1.1em;
+	width: 6em;
+  	margin-right: 1em;
+  	margin-top: 0.2em;
+}
+
+#addDetail > form > div > input[type="checkbox"]{
+	height: 1em;
+}
+
+#addDetail > form > div.checkboxLabel{
+	margin-top: 0em;
+	padding: 0em;
+	width: 3em;
+}
+
+	#operation {
+		display: flex;
+		flex-direction: row;
+	}
+
+
+	/*Define the style of button and style of the input which type is submit*/
+	#operation > button,
+
+	#operation > input[type="submit"]
+	{
+		background: transparent;
+		width: 8em;
+		height: 2.1em;
+		margin: 0.5em 0.5em 0.5em 0;
+		border: 0.16em solid black;
+		font-size: 1em;
+		border-radius: 0.2em;
+		text-decoration: none;
+		outline: none;
+		font-family: 'Roboto', sans-serif;
+	}
+
+	#operation > button:hover,
+	#operation > input[type="submit"]:hover{
+		border-color:#999999;
+		color:#999999;
+	}
+
+	#operation > button:active,
+	#operation > input[type="submit"]:active {
+		background:#cccccc;
+		border-color: #cccccc;
+		color: black;
+	}
+
+
+@media all and (min-width: 376px) {
+	section{
+		padding-top: 0em;
+		width:60em;
+	}
+
+
+	#uploadImage > p{
+		position: static;
+		float: left;
+	}
+	#uploadImage > input[type="file"]{
+		position: static;
+		float: left;
+	}
+
+	#addDetail{
+		padding: 2em;
+	}
+
+	#addDetail > form {
+	  display: flex;
+	  flex-direction: column;
+	}
+
+	#addDetail > form > div {
+		display: flex;
+	}
+
+	#addDetail > form > div > label {
+		font-size: 1.1em;
+    	font-weight: bold;
+    	width: 15em;
+    	margin-right: 1em;
+    	margin-top: 0.5em;
+	}
+
+	#addDetail > form > div > input[type="checkbox"]{
+		height: 1.5em;
+	}
+
+	.checkboxLabel{
+		width: 3em;
+	}
+
+	#operation {
+		display: flex;
+		flex-direction: row;
+	}
+}
